@@ -5,6 +5,7 @@ import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.dracula.test.dubbo.aop.TestInterface;
+import org.dracula.test.dubbo.aop.TestReqBO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -29,12 +30,26 @@ public class TestConsumer {
 
     @Test
     public void testWithAspect(){
-        logger.info(testInterface.sayHelloWithAspect("world"));
+        TestReqBO reqBO = new TestReqBO();
+        reqBO.setId(1);
+        reqBO.setName("world");
+        logger.info(testInterface.sayHelloWithAspect(reqBO));
+    }
+
+    @Test
+    public void testWithAspectButShouldNot(){
+        TestReqBO reqBO = new TestReqBO();
+        reqBO.setId(10000);
+        reqBO.setName("world");
+        logger.info(testInterface.sayHelloWithAspect(reqBO));
     }
 
     @Test
     public void testWithOUTAspect(){
-        logger.info(testInterface.sayHelloWithOUTAspect("world"));
+        TestReqBO reqBO = new TestReqBO();
+        reqBO.setId(1);
+        reqBO.setName("world");
+        logger.info(testInterface.sayHelloWithOUTAspect(reqBO));
     }
 
     @Configuration

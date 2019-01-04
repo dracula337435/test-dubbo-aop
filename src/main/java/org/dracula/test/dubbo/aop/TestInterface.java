@@ -7,16 +7,16 @@ public interface TestInterface {
 
     /**
      *
-     * @param name
+     * @param reqBO
      * @return
      */
-    String sayHelloWithAspect(String name);
+    String sayHelloWithAspect(TestReqBO reqBO);
 
     /**
      *
-     * @param name
+     * @param reqBO
      * @return
      */
-    String sayHelloWithOUTAspect(String name);
+    String sayHelloWithOUTAspect(TestReqBO reqBO);
 
 }
