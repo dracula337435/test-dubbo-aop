@@ -5,6 +5,18 @@ package org.dracula.test.dubbo.aop;
  */
 public interface TestInterface {
 
-    String sayHello(String name);
+    /**
+     *
+     * @param name
+     * @return
+     */
+    String sayHelloWithAspect(String name);
+
+    /**
+     *
+     * @param name
+     * @return
+     */
+    String sayHelloWithOUTAspect(String name);
 
 }

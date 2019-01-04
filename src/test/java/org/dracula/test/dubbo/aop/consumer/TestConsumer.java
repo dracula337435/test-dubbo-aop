@@ -28,8 +28,13 @@ public class TestConsumer {
     private TestInterface testInterface;
 
     @Test
-    public void test(){
-        logger.info(testInterface.sayHello("world"));
+    public void testWithAspect(){
+        logger.info(testInterface.sayHelloWithAspect("world"));
+    }
+
+    @Test
+    public void testWithOUTAspect(){
+        logger.info(testInterface.sayHelloWithOUTAspect("world"));
     }
 
     @Configuration
