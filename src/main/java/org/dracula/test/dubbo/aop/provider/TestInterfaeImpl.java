@@ -15,7 +15,7 @@ public class TestInterfaeImpl implements TestInterface {
     private static Logger logger = LoggerFactory.getLogger(TestInterfaeImpl.class);
 
     @Override
-    @ForwardAway("")
+    @ForwardAway("some-info")
     public String sayHelloWithAspect(String name) {
         logger.info("期望这个有切面");
         return "with aspect, hello "+name;
