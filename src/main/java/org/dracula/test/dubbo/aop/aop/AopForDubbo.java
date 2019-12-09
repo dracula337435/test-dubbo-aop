@@ -25,8 +25,6 @@ public class AopForDubbo {
 
     @Around("allMethods() && @annotation(forwardAway)")
     public Object forward(ProceedingJoinPoint proceedingJoinPoint, ForwardAway forwardAway) throws Throwable{
-        Object returnValue;
-        //
         MethodSignature methodSignature = (MethodSignature)proceedingJoinPoint.getSignature();
         logger.debug("被切函数为："+methodSignature.toString());
         String forwardUrl = getUrl(forwardAway, methodSignature);
