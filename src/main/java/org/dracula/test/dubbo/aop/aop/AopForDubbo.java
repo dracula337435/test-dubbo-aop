@@ -20,11 +20,10 @@ public class AopForDubbo {
 
     private static Logger logger = LoggerFactory.getLogger(AopForDubbo.class);
 
-//    @Pointcut("@annotation(org.dracula.test.dubbo.aop.aop.ForwardAway)")
     @Pointcut("execution(* *(..))")
-    public void hasCertainAnnotation(){}
+    public void allMethods(){}
 
-    @Around("hasCertainAnnotation() && @annotation(forwardAway)")
+    @Around("allMethods() && @annotation(forwardAway)")
     public Object forward(ProceedingJoinPoint proceedingJoinPoint, ForwardAway forwardAway) throws Throwable{
         Object returnValue;
         //
